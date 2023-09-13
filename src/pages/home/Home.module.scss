@@ -1,0 +1,31 @@
+.home {
+    @apply hero bg-base-100;
+
+    .content {
+        @apply bg-base-100 hero-content flex-col lg:flex-row-reverse p-0;
+
+        img {
+            @apply shadow-2xl ;
+        }
+
+        .content-text {
+            @apply px-5 lg:px-12;
+
+            img {
+                @apply p-12
+            }
+
+            h1 {
+                @apply text-2xl md:text-4xl lg:text-5xl font-bold;
+            }
+
+            p {
+                @apply py-6;
+            }
+
+            button {
+                @apply btn btn-neutral btn-active mb-6;
+            }
+        }
+    }
+}

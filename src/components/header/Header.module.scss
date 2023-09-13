@@ -1,0 +1,30 @@
+.header {
+    @apply flex items-center justify-between bg-base-100 h-12 pl-2 lg:pl-8;
+
+    .logo {
+        @apply flex items-center;
+
+        span {
+            @apply text-red-600 sm:text-2xl md:text-lg lg:text-2xl;
+        }
+    }
+
+    nav {
+        @apply justify-between w-1/2 hidden lg:flex;
+    
+        ul {
+            @apply flex items-center text-error;
+    
+            li {
+                @apply px-5 py-1 rounded-lg hover:bg-neutral-content hover:text-neutral;
+            }
+        }
+    }
+
+    .btn-sign-up {
+        @apply hidden lg:block btn btn-error rounded-none bg-red-600 text-base-100;
+    }
+}
+
+
+

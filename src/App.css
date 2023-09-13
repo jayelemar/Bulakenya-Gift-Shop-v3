@@ -18,8 +18,9 @@
   header, footer, section {
     justify-content: center;
     width: 100%;
+    background-color: #eee;
   }
   .container {
-    width: 1300px;
+    max-width: 1200px;
     margin: auto;
   }
