@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import image1 from '../../assets/wood-oval-brush-removebg-preview.png'
 import styles from './Home.module.scss'
 

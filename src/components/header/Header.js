@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../../assets/bulakenya-logo.png'
 import styles from './Header.module.scss'
+import { NavLink } from 'react-router-dom'
 
 const Header = () => {
   return (
@@ -14,10 +15,10 @@ const Header = () => {
         </div>
         <nav>
             <ul>
-              <li>Home</li>
-              <li>Products</li>
-              <li>About</li>
-              <li>Contact</li>
+              <NavLink to="/">Home</NavLink>
+              <NavLink to="/products">Products</NavLink>
+              <NavLink to="about">About</NavLink>
+              <NavLink to="contact">Contact</NavLink>
             </ul>
             
         </nav>

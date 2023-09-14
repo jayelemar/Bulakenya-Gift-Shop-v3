@@ -1,5 +1,5 @@
 .header {
-    @apply flex items-center justify-between bg-base-100 h-12 pl-2 lg:pl-8;
+    @apply flex items-center justify-between bg-base-100 h-1/6 pl-2 lg:pl-8;
 
     .logo {
         @apply flex items-center;
@@ -15,14 +15,14 @@
         ul {
             @apply flex items-center text-error;
     
-            li {
+            > * {
                 @apply px-5 py-1 rounded-lg hover:bg-neutral-content hover:text-neutral;
             }
         }
     }
 
     .btn-sign-up {
-        @apply hidden lg:block btn btn-error rounded-none bg-red-600 text-base-100;
+        @apply hidden lg:block btn btn-error rounded-none bg-red-600 text-base-100 h-full;
     }
 }
 
