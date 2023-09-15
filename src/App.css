@@ -14,13 +14,21 @@
   
   body {
     font-family: "Poppins", sans-serif;
+  
   }
   header, footer, section {
     justify-content: center;
     width: 100%;
     background-color: #eee;
   }
+
   .container {
     max-width: 1200px;
     margin: auto;
   }
+
+  nav {
+    max-width: 1200px;
+    margin: auto;
+  }
+
