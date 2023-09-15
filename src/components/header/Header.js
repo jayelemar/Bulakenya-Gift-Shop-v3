@@ -1,35 +1,36 @@
-import React from 'react'
+import { Link } from 'react-scroll'
 import logo from '../../assets/bulakenya-logo.png'
 import styles from './Header.module.scss'
-import { NavLink } from 'react-router-dom'
 
 const Header = () => {
+
   return (
     <header>
-      <div className={`container ${styles.header}`}>
-        <div className={styles.logo}>
-          <img src={logo} alt="" width={55} />
-          <span>
-            Bulakenya Gift Shop
-          </span>
-        </div>
-        <nav>
-            <ul>
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/products">Products</NavLink>
-              <NavLink to="about">About</NavLink>
-              <NavLink to="contact">Contact</NavLink>
-            </ul>
-            
-        </nav>
-        <button className={styles['btn-sign-up']}>Sign up</button>
-          <label className="btn swap swap-rotate rounded-none bg-inherit lg:hidden">
+        <div className={`container ${styles.header}`}>
+            <div className={styles.logo}>
+                <img src={logo} alt="" width={55} />
+                <span>
+                Bulakenya Gift Shop
+                </span>
+            </div>
+            <nav>
+                <ul>
+                    <Link to='home' smooth={true} duration={500}>Home</Link>
+                    <Link to='products' smooth={true} duration={500}>Products</Link>
+                    <Link to='about' smooth={true} duration={500}>About</Link>
+                    <Link to='contact' smooth={true} duration={500}>Contact</Link>
+                </ul>
+            </nav>
+            <button className={styles['btn-sign-up']}>Sign up</button>
+                <label 
+                    className={`btn swap swap-rotate ${styles.menu}`}
+                >
             <input type="checkbox" />
             <svg className="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" /></svg>
             {/* close icon */}
             <svg className="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" /></svg>
-          </label>
-      </div>
+            </label>
+        </div>
     </header>
   )
 } 

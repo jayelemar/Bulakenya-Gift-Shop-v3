@@ -2,9 +2,11 @@ import React from 'react'
 
 const Products = () => {
   return (
-    <div>
-      Products.js
-    </div>
+    <section id='products'>
+      <div className="container bg-red-400">
+        <h1>product.js</h1>
+      </div>
+    </section>
   )
 }
 
