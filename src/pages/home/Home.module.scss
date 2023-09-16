@@ -2,10 +2,10 @@
     @apply hero bg-base-100;
 
     .content {
-        @apply bg-base-100 hero-content flex-col lg:flex-row-reverse p-0;
+        @apply bg-base-100 hero-content flex-col-reverse md:flex-row lg:flex-row-reverse p-0;
 
         img {
-            @apply shadow-2xl ;
+            @apply shadow-2xl;
         }
 
         .content-text {
@@ -16,7 +16,7 @@
             }
 
             h1 {
-                @apply text-2xl md:text-4xl lg:text-5xl font-bold;
+                @apply text-2xl md:text-4xl lg:text-5xl font-bold mt-3 ;
             }
 
             p {
@@ -24,7 +24,8 @@
             }
 
             button {
-                @apply btn btn-neutral btn-active mb-6;
+                @apply btn btn-neutral btn-active mb-6 relative 
+                top-8;
             }
         }
     }
