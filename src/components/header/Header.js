@@ -3,9 +3,11 @@ import logo from '../../assets/bulakenya-logo.png'
 import styles from './Header.module.scss'
 import { useState } from 'react'
 import { HiOutlineMenuAlt3 } from 'react-icons/hi'
+import { Button, Modal } from 'react-daisyui'
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { Dialog, handleShow } = Modal.useDialog();
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -29,11 +31,16 @@ const Header = () => {
                     <Link activeClass='' to='contact' smooth={true} duration={500}><li>Contact</li></Link>
                 </ul>
             </nav>
-            <button className={styles['btn-sign-up']}>Sign up</button>
+            <button 
+                className={styles['btn-sign-up']} 
+                onClick={handleShow}>
+                    Sign up
+            </button>
             <div className={styles['menu-icon']}>
                 <HiOutlineMenuAlt3 size={28} onClick={toggleMenu}/>
             </div>
         </div>
+
     </header>
   )
 } 

@@ -8,7 +8,7 @@ const Home = ( ) => {
         <section id='home'>
             <div className={`container ${styles.home}` }>
                     <div className={`carousel  ${styles.content}`}>
-                        <img src={ ovalBrush } alt='oval-brush' />
+                        <img src={ ovalBrush } alt='oval-brush' className={styles.brush}/>
                         <div className={styles['content-text']} >
                             <h1>Gift and party needs for your Beloved</h1>
                             <p>Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
@@ -16,8 +16,7 @@ const Home = ( ) => {
                             
                             
                         </div>
-                    </div>
-            </div>
+            </div></div>
         </section>
     )
 }

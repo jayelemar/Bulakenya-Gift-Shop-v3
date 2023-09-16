@@ -15,7 +15,7 @@ header{
     }
 
     nav {
-        @apply hidden md:flex lg:flex 2xl:flex
+        @apply hidden md:flex lg:flex 
         w-96 justify-between 
         ;
 
@@ -41,7 +41,11 @@ header{
 
     .menu-icon{
         @apply cursor-pointer
-        sm:flex md:hidden lg:hidden 2xl:hidden;
+        sm:flex md:hidden;
+    }
+
+    .dialog {
+        // @apply w-96 h-96
     }
 }
 
