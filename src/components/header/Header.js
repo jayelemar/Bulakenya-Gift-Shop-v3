@@ -27,7 +27,7 @@ const Header = () => {
                     <Link to='home' smooth={true} duration={500}><li>Home</li></Link>
                     <Link to='products' smooth={true} duration={500}><li>Products</li></Link>
                     <Link to='about' smooth={true} duration={500}><li>About</li></Link>
-                    <Link to='contact' smooth={true} duration={500}><li>Contact</li></Link>
+                    <li onClick={()=>document.getElementById('my_modal_5').showModal()}>Contact</li>
                 </ul>
             </nav>
             <button 
