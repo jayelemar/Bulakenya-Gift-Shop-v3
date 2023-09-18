@@ -1,36 +1,40 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  html {
-    font-size: 16px;
-  }
-  
-  body {
-    font-family: "Poppins", sans-serif;
-  
-  }
-  header, footer, section {
-    justify-content: center;
-    width: 100%;
-    background-color: #eee;
-  }
 
-  .container {
-    max-width: 1200px;
-    margin: auto;
-  }
 
-  nav {
-    max-width: 1200px;
-    margin: auto;
-  }
+/* backup */
+.--form-control {
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.--form-control > * {
+  margin: 5px 0;
+}
+
+.--form-control input {
+  font-size: 1.6rem;
+  font-weight: 300;
+  padding: 8px 1rem;
+  border: 1px solid #777;
+  border-radius: 3px;
+  outline: none;
+}
+.--form-control select {
+  font-size: 1.4rem;
+  font-weight: 400;
+  padding: 8px 1rem;
+  border: 1px solid #777;
+  border-radius: 3px;
+}
+
+.--form-control label {
+  font-size: 1.6rem;
+  font-weight: 400;
+  display: inline-block;
+  min-width: 7rem;
+  color: var(--color-dark);
+  margin-right: 1rem;
+}
 
   
 

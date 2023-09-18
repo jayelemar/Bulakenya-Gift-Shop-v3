@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import styles from './Contact.module.scss'
+import { AiOutlineClose } from 'react-icons/ai'
 
 
 const Contact = () => {
@@ -16,38 +18,47 @@ const Contact = () => {
     }, 3000);
   }
 
-
   return (
     <section>
         <div className="container flex justify-center items-center bg-blue-400 ">
-        {/* Open the modal using document.getElementById('ID').showModal() method */}
-        <button className="btn" onClick={()=>document.getElementById('my_modal_5').showModal()}>Contact Us</button>
-    <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-  <div className="modal-box">
-    <h3 className="font-bold text-lg">Hello</h3>
+
+        <button className="btn" 
+            onClick={()=>document.getElementById('my_modal_5').showModal()}>
+        Contact Us
+        </button>
+
+        <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+            <div className="modal-box py-3">
+    <div className="flex justify-between items-center">
+    <h3 className={`font-bold text-lg ${styles.h3Style}`}>Hello</h3>
+    <form method="dialog">
+        {/* if there is a button in form, it will close the modal */}
+        <button className="btn btn-sm"><AiOutlineClose/></button>
+        </form>
+    </div>
     <p className="py-4">If you have any questions or comments, please send us a message..</p>
 
         <form onSubmit={ handleSubmit(onSubmit) }>
-            <div className="flex flex-col md:flex-row p-2">
-            <div className="form-group flex flex-col">
+            <div className="flex flex-col p-2">
+            <div className={`form-group flex flex-col ${styles['form-control']}`}>
                 <input type="text" placeholder='Name'
                     {...register('name', {required: true} )}
                 />
-                {errors.name && <span className='error'>Name is required</span>}
+                {errors.name && <span className={`error ${styles.err}`}>Name is required</span>}
             </div>
 
-            <div className="form-group flex flex-col ">
+            <div className={`form-group flex flex-col ${styles['form-control']}`}>
                 <input type="email" placeholder='Email'
                     {...register('email', { required: true } )}
                 />
-                {errors.email && <span className='error'>Email is required</span>}
+                {errors.email && <span className={`error ${styles.err}`}>Email is required</span>}
             </div>
             </div>
-            <div className="form-group p-2">
-                <textarea rows="4" placeholder='Message'
+            <div className={`form-group p-2 ${styles['form-control']}`}>
+                <textarea rows="4" placeholder='Message' className='w-full'
                     {...register('message', { required: true } )}
                 >
-                {errors.message && <span className='error'>Message is required</span>}
+                {errors.message && <span className={`error ${styles.err}`}>Message is required</span>}
                 </textarea>
             </div>
 
@@ -57,10 +68,7 @@ const Contact = () => {
         </form>
 
     <div className="modal-action">
-        <form method="dialog">
-        {/* if there is a button in form, it will close the modal */}
-        <button className="btn">Close</button>
-        </form>
+
     </div>
     </div>
 </dialog>
