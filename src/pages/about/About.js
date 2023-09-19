@@ -4,6 +4,7 @@ const About = () => {
   return (
     <div>
         <section id='about'>
+            <div style={{ height: '60px' }}></div>
             <div className="container bg-yellow-400">
                 <h1>about.js</h1>
             </div>

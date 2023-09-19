@@ -19,7 +19,9 @@ const Contact = () => {
   }
 
   return (
+
     <section>
+        <div style={{ height: '60px' }}></div>
         <div className="container flex justify-center items-center bg-blue-400 ">
 
         <button className="btn" 
@@ -72,9 +74,7 @@ const Contact = () => {
     </div>
     </div>
 </dialog>
-
-
-        
+       
 </div>
     </section>
   )
