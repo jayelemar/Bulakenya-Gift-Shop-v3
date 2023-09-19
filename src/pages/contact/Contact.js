@@ -3,6 +3,7 @@ import React from 'react'
 const Contact = () => {
   return (
     <section id='contact'>
+      <div style={{ height: '60px' }}></div>
       <div className="container bg-green-400">
         <h1>contact.js</h1>
       </div>

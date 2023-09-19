@@ -6,6 +6,7 @@ import { Link } from 'react-scroll'
 const Home = ( ) => {
     return (
         <section id='home'>
+            <div style={{ height: '60px' }}></div>
             <div className={`container ${styles.home}` }>
                     <div className={`carousel  ${styles.content}`}>
                         <img src={ ovalBrush } alt='oval-brush' className={styles.brush}/>
