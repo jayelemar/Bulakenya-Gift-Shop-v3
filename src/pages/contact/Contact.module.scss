@@ -1,0 +1,20 @@
+.h3Style {
+    @apply text-red-400 text-2xl font-normal my-0;
+}
+
+.form-control {
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      @apply p-2 border border-gray-400 rounded-lg focus:outline-none text-sm;
+    }
+
+    input[type="text"] {
+      @apply mb-1
+    }
+  }
+  
+.err {
+    @apply text-sm text-red-400
+}
+

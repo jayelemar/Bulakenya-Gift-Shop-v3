@@ -2,11 +2,12 @@ import { Link } from 'react-scroll'
 import logoSource from '../../assets/bulakenya-logo.png'
 import styles from './Header.module.scss'
 import { useState } from 'react'
+
 import { Modal } from 'react-daisyui'
+
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { Dialog, handleShow } = Modal.useDialog();
 
     const logo = (
         <div className="flex">
@@ -48,8 +49,6 @@ const Header = () => {
                     </div> 
                 </div>
             </div> 
-
-
             {/* mobile navbar */}
             <div className="drawer-side z-10">
                 <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
@@ -61,7 +60,6 @@ const Header = () => {
                     <li><Link to="contact" smooth={true} duration={500}>Contact</Link></li>
                     <button className="btn btn-sm md:btn-lg rounded-none bg-red-500 text-slate-100 hover:btn-neutral rounded-md mt-5">Sign Up</button>
                 </ul>
-
             </div>
         </div>
     </header>
