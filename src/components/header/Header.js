@@ -13,7 +13,7 @@ const Header = () => {
         <div className="flex">
             <a className="btn btn-ghost normal-case text-xl text-red-500">
             <img src={logoSource} alt="bulakenya-logo" width={45}/>
-                <h1 className='text-lg md:text-lg lg:text-2xl'>Bulakenya Gift Shop</h1>
+                <h1 className='text-lg md:text-lg lg:text-2xl m-0'>Bulakenya Gift Shop</h1>
             </a>
         </div>
     )
