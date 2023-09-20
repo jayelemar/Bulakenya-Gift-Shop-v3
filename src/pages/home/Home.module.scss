@@ -12,7 +12,7 @@
             @apply px-5 lg:px-12;
 
             img {
-                @apply p-12
+                @apply p-12 w-screen;
             }
 
             h1 {
@@ -24,8 +24,7 @@
             }
 
             button {
-                @apply btn btn-neutral btn-active mb-6 relative 
-                top-8;
+                @apply btn btn-neutral btn-active relative my-0;
             }
         }
     }

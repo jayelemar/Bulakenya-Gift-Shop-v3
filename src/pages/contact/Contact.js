@@ -47,7 +47,7 @@ const Contact = () => {
     // ()=>document.getElementById('my_modal_5').showModal()
 
     return (
-        <section>
+        <section id='contact'>
             <div style={{ height: '60px' }}></div>
             <div className="container flex justify-center items-center bg-blue-400 ">
                 <button className="btn" 
@@ -59,7 +59,7 @@ const Contact = () => {
                         <div className="flex justify-between items-center">
                             <h3 className={`font-bold text-lg ${styles.h3Style}`}>Hello</h3>
                             <form method="dialog">
-                                <button className="btn btn-sm"><AiOutlineClose/></button>
+                                <button className="btn btn-sm" onClick={closeModal}><AiOutlineClose/></button>
                             </form>
                         </div>
                         <p className="py-4">If you have any questions or comments, please send us a message..</p>
@@ -86,7 +86,7 @@ const Contact = () => {
                                 </textarea>
                             </div>
                             <div className="form-group flex justify-center">
-                                <button type='submit' className='btn btn-outline px-10'>Submit</button>
+                                <button type='submit' className='btn btn-outline px-10'>Send</button>
                             </div>
                         </form>
                         <div className="modal-action">

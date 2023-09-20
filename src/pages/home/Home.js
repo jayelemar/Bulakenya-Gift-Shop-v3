@@ -13,7 +13,7 @@ const Home = ( ) => {
                         <div className={styles['content-text']} >
                             <h1>Gift and party needs for your Beloved</h1>
                             <p>Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                            <Link to='products'><button>Start Shopping</button></Link>
+                            <Link to='products'><button className='p-0 m-0'>Start Shopping</button></Link>
                             
                             
                         </div>
