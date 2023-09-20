@@ -32,8 +32,6 @@ const Contact = () => {
             setIsSubmitted(false);
             closeModal();
         }, 1000);
-
-
     }
 
     const openModal = () => {
