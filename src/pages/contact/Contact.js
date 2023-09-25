@@ -46,7 +46,7 @@ const Contact = () => {
 
     return (
         <section id='contact'>
-            <div style={{ height: '60px' }}></div>
+            <div style={{ height: '60px' }} className='bg-red-400 container'></div>
             <div className="container flex justify-center items-center bg-blue-400 ">
                 <button className="btn" 
                     onClick={openModal}>

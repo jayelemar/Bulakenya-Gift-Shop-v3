@@ -8,7 +8,7 @@ const About = () => {
   return (
     <div>
         <section id='about'>
-            <div style={{ height: '60px' }}></div>
+            <div style={{ height: '60px' }} className='container bg-red-400'></div>
             <div className={`container ${styles.about}`}>
                 <h4>Contact Details</h4>
                 <div className={styles.desc}>
