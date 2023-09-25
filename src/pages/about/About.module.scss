@@ -28,24 +28,27 @@
             }
 
             .icons {
-                @apply flex w-full justify-start items-center p-3;
+                @apply flex w-full justify-start items-center p-3 hover:cursor-default;
 
                 a {
                     .facebook {
-                        @apply rounded-full text-white mx-1;
+                        @apply rounded-full text-white mx-1 hover:cursor-pointer;
                     }
                 }
 
                 a {
+                    @apply hover:cursor-default;
                     .shopee {
-                        @apply text-white relative bottom-1 mx-6 md:mx-16 my-4;
+                        @apply text-white relative bottom-1 mx-6 md:mx-16 my-4 hover:cursor-pointer;
                     }
                 }
 
                 a {
                     img {
+                        @apply hover:cursor-pointer;
+                        
                         .lazada {
-                            @apply w-full h-full;
+                            @apply w-full h-full hover:cursor-pointer;
                         }
                     }
                 }
