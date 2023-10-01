@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Products.module.scss'
+import ProductList from './ProductList'
 
 const Products = () => {
   return (
@@ -7,6 +8,7 @@ const Products = () => {
       <div style={{ height: '60px' }} className='container bg-slate-800'></div>
       <div className="container bg-slate-800">
         <h1 className='text-white'>product.js</h1>
+        <ProductList/>
       </div>
     </section>
   )
