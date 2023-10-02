@@ -58,19 +58,38 @@ const Header = () => {
 
                                 </li>
                                 <li>
-                                    <ScrollLink to="products" smooth={true} duration={500}>
-                                        Products
-                                    </ScrollLink>
+                                    {location.pathname === '/' ? (
+                                        <ScrollLink to="products" smooth={true} duration={500}>
+                                            Products
+                                        </ScrollLink>
+                                    ) : (
+                                        <RouterLink to='/#products'>
+                                            Products
+                                        </RouterLink>
+                                    )}
                                 </li>
                                 <li>
+                                {location.pathname === '/' ? (
                                     <ScrollLink to="about" smooth={true} duration={500}>
                                         About
                                     </ScrollLink>
+                                ) : (
+                                    <RouterLink to='/#about'>
+                                        About
+                                    </RouterLink>
+                                ) }
                                 </li>
                                 <li>
+                                {location.pathname === '/' ? (
                                     <ScrollLink onClick={ openModal }>
                                         Contact
                                     </ScrollLink>
+                                ) :(
+                                    <RouterLink to='/' onClick={ openModal } >
+                                        Contact
+                                    </RouterLink>
+                                )}
+                                    
                                 </li>
                             </ul>
                         </div>
@@ -108,9 +127,9 @@ const Header = () => {
                                 Home
                             </RouterLink>
                         )}
-                            
                         </li>
                         <li>
+                        {location.pathname === '/' ? (
                             <ScrollLink
                                 to="products"
                                 smooth={true}
@@ -119,20 +138,29 @@ const Header = () => {
                             >
                                 Products
                             </ScrollLink>
+                        ) : (
+                            <RouterLink to='/#products' onClick={closeMobileNav}>
+                                Products
+                            </RouterLink>
+                        )}
                         </li>
                         <li>
+                        {location.pathname === '/' ? (
                             <ScrollLink
-                                to="about"
-                                smooth={true}
-                                duration={500}
-                                onClick={closeMobileNav}
+                            to="about"
+                            smooth={true}
+                            duration={500}
+                            onClick={closeMobileNav}
                             >
                                 About
                             </ScrollLink>
+                        ) : (
+                            <RouterLink to='/#about' onClick={closeMobileNav}>
+                                About
+                            </RouterLink>
+                        )}
                         </li>
                         <li>
-
-
                             <ScrollLink  onClick={ () => {
                                 closeMobileNav();
                                 openModal();
