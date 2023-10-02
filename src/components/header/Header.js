@@ -2,12 +2,15 @@ import { Link as ScrollLink} from 'react-scroll'
 import { Link as RouterLink, useLocation } from 'react-router-dom'
 import logoSource from '../../assets/bulakenya-logo.png'
 import styles from './Header.module.scss'
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import ModalContext from '../../context/ModalContext';
 
 const Header = () => {
     const location = useLocation();
 
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
+    const { openModal } = useContext(ModalContext)
 
     const logo = (
         <div className={`flex ${styles.logo}`}>
@@ -43,12 +46,7 @@ const Header = () => {
                         <div className={styles['menu-box']}>
                             <ul className="menu menu-horizontal">
                                 {/* Horizontal Navbar menu */}
-<<<<<<< Updated upstream
-                                <li><Link to="home" smooth={true} duration={500}>Home</Link></li>
-                                <li><Link to="products" smooth={true} duration={500}>Products</Link></li>
-                                <li><Link to="about" smooth={true} duration={500}>About</Link></li>
-                                <li><Link to="contact" smooth={true} duration={500}>Contact</Link></li>
-=======
+
                                 <li>
                                 {location.pathname === '/' ? (
                                     <ScrollLink to="home" smooth={true} duration={500}>
@@ -74,19 +72,13 @@ const Header = () => {
                                         Contact
                                     </ScrollLink>
                                 </li>
->>>>>>> Stashed changes
                             </ul>
                         </div>
 
                         {/* Button */}
-<<<<<<< Updated upstream
-                        <button className={`btn btn-sm ${styles['sign-up']}`}>Sign Up</button>
-=======
                         <button className={`btn btn-sm ${styles['sign-up']}`}>
                             <RouterLink to='/login'>Sign In</RouterLink>
                         </button>
->>>>>>> Stashed changes
-
 
                         {/* Menu Icon */}
                         <div className="flex md:hidden">
@@ -139,20 +131,13 @@ const Header = () => {
                             </ScrollLink>
                         </li>
                         <li>
-<<<<<<< Updated upstream
-                            <Link
-                                to="contact"
-                                smooth={true}
-                                duration={500}
-                                onClick={closeMobileNav}
-                            >
-=======
+
+
                             <ScrollLink  onClick={ () => {
                                 closeMobileNav();
                                 openModal();
                                 }
                             }>
->>>>>>> Stashed changes
                                 Contact
                             </ScrollLink>
                         </li>

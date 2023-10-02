@@ -4,12 +4,16 @@ import styles from './Contact.module.scss'
 import { AiOutlineClose } from 'react-icons/ai'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useContext } from 'react';
+import ModalContext from '../../context/ModalContext';
 
 
 const Contact = () => {
     const {register, handleSubmit, formState: { errors }, reset } = useForm();
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    
+    // context api
+    const { isModalOpen, openModal, closeModal } = useContext(ModalContext)
 
     const onSubmit = async (data) => {
         try {
@@ -32,14 +36,6 @@ const Contact = () => {
             setIsSubmitted(false);
             closeModal();
         }, 1000);
-    }
-
-    const openModal = () => {
-        setIsModalOpen(true);
-    }
-
-    const closeModal = () => {
-        setIsModalOpen(false);
     }
 
     // ()=>document.getElementById('my_modal_5').showModal()
