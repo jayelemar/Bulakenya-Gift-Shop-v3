@@ -1,10 +1,13 @@
 import { Link } from 'react-scroll'
 import logoSource from '../../assets/bulakenya-logo.png'
 import styles from './Header.module.scss'
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import ModalContext from '../../context/ModalContext';
 
 const Header = () => {
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
+    const { openModal } = useContext(ModalContext)
 
     const logo = (
         <div className={`flex ${styles.logo}`}>
@@ -43,12 +46,12 @@ const Header = () => {
                                 <li><Link to="home" smooth={true} duration={500}>Home</Link></li>
                                 <li><Link to="products" smooth={true} duration={500}>Products</Link></li>
                                 <li><Link to="about" smooth={true} duration={500}>About</Link></li>
-                                <li><Link to="contact" smooth={true} duration={500}>Contact</Link></li>
+                                <li><Link onClick={ openModal }>Contact</Link></li>
                             </ul>
                         </div>
 
                         {/* Button */}
-                        <button className={`btn btn-sm ${styles['sign-up']}`}>Sign Up</button>
+                        <button className={`btn btn-sm ${styles['sign-up']}`}>Sign In</button>
 
 
                         {/* Menu Icon */}
@@ -95,12 +98,11 @@ const Header = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link
-                                to="contact"
-                                smooth={true}
-                                duration={500}
-                                onClick={closeMobileNav}
-                            >
+                            <Link  onClick={ () => {
+                                closeMobileNav();
+                                openModal();
+                                }
+                            }>
                                 Contact
                             </Link>
                         </li>
