@@ -1,0 +1,61 @@
+.auth {
+    @apply min-h-[80vh] flex justify-center items-center;
+
+    .img {
+        @apply duration-500 ease-linear;
+    }
+
+    .form {
+        @apply w-[35rem] p-6 duration-500 ease-linear;
+
+        h3 {
+            @apply text-center text-red-500;
+        }
+
+        form {
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] {
+            display: block;
+            padding: 1rem;
+            margin: 1rem auto;
+            width: 100%;
+            border: 1px solid #777;
+            border-radius: 3px;
+            outline: none;
+            }
+
+            .links {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+            }
+  
+            p {
+            text-align: center;
+            margin: 1rem;
+            }
+        }
+        .register {
+            @apply flex justify-center items-start;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+        }
+    }
+
+
+
+
+
+}
+
+
+
+@media screen and (max-width: 700px) {
+    .img {
+        display: none;
+    }
+}
