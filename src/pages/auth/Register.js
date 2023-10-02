@@ -2,9 +2,14 @@ import React from 'react'
 
 const Register = () => {
   return (
-    <div>
-        <h1>Register.js</h1>
-    </div>
+
+    <section>
+        <div style={{ height: '60px' }} className='bg-red-400 container'></div>
+        <div className="container">
+            <h4>Register.js</h4>
+        </div>
+    </section>    
+
   )
 }
 

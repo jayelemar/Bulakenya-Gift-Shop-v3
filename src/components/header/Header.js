@@ -1,10 +1,13 @@
-import { Link } from 'react-scroll'
+import { Link as ScrollLink} from 'react-scroll'
+import { Link as RouterLink, useLocation } from 'react-router-dom'
 import logoSource from '../../assets/bulakenya-logo.png'
 import styles from './Header.module.scss'
 import { useState, useContext } from 'react';
 import ModalContext from '../../context/ModalContext';
 
 const Header = () => {
+    const location = useLocation();
+
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
     const { openModal } = useContext(ModalContext)
@@ -43,16 +46,39 @@ const Header = () => {
                         <div className={styles['menu-box']}>
                             <ul className="menu menu-horizontal">
                                 {/* Horizontal Navbar menu */}
-                                <li><Link to="home" smooth={true} duration={500}>Home</Link></li>
-                                <li><Link to="products" smooth={true} duration={500}>Products</Link></li>
-                                <li><Link to="about" smooth={true} duration={500}>About</Link></li>
-                                <li><Link onClick={ openModal }>Contact</Link></li>
+
+                                <li>
+                                {location.pathname === '/' ? (
+                                    <ScrollLink to="home" smooth={true} duration={500}>
+                                        Home
+                                    </ScrollLink>
+                                ) : (
+                                    <RouterLink to='/'>Home</RouterLink>
+                                )}
+
+                                </li>
+                                <li>
+                                    <ScrollLink to="products" smooth={true} duration={500}>
+                                        Products
+                                    </ScrollLink>
+                                </li>
+                                <li>
+                                    <ScrollLink to="about" smooth={true} duration={500}>
+                                        About
+                                    </ScrollLink>
+                                </li>
+                                <li>
+                                    <ScrollLink onClick={ openModal }>
+                                        Contact
+                                    </ScrollLink>
+                                </li>
                             </ul>
                         </div>
 
                         {/* Button */}
-                        <button className={`btn btn-sm ${styles['sign-up']}`}>Sign In</button>
-
+                        <button className={`btn btn-sm ${styles['sign-up']}`}>
+                            <RouterLink to='/login'>Sign In</RouterLink>
+                        </button>
 
                         {/* Menu Icon */}
                         <div className="flex md:hidden">
@@ -68,45 +94,56 @@ const Header = () => {
                     <ul className="menu">
                         {logo}
                         <li>
-                            <Link
+                        {location.pathname === '/' ? (
+                            <ScrollLink
                                 to="home"
                                 smooth={true}
                                 duration={500}
                                 onClick={closeMobileNav}
                             >
                                 Home
-                            </Link>
+                            </ScrollLink>
+                        ) : (
+                            <RouterLink to='/' onClick={ closeMobileNav }>
+                                Home
+                            </RouterLink>
+                        )}
+                            
                         </li>
                         <li>
-                            <Link
+                            <ScrollLink
                                 to="products"
                                 smooth={true}
                                 duration={500}
                                 onClick={closeMobileNav}
                             >
                                 Products
-                            </Link>
+                            </ScrollLink>
                         </li>
                         <li>
-                            <Link
+                            <ScrollLink
                                 to="about"
                                 smooth={true}
                                 duration={500}
                                 onClick={closeMobileNav}
                             >
                                 About
-                            </Link>
+                            </ScrollLink>
                         </li>
                         <li>
-                            <Link  onClick={ () => {
+
+
+                            <ScrollLink  onClick={ () => {
                                 closeMobileNav();
                                 openModal();
                                 }
                             }>
                                 Contact
-                            </Link>
+                            </ScrollLink>
                         </li>
-                        <button className={`btn btn-sm`}>Sign Up</button>
+                        <button className={`btn btn-sm ${styles['sign-up']}`}>
+                            <RouterLink to='/login'>Sign In</RouterLink>
+                        </button>
                     </ul>
                 </div>
             </div>
