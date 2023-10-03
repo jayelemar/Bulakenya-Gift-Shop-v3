@@ -1,13 +1,13 @@
 .auth {
 
-    @apply min-h-[80vh] flex justify-center items-center;
+    @apply h-[80vh] flex justify-center items-center bg-slate-100 px-5;
 
     .img {
-        @apply duration-500 ease-linear;
+        @apply duration-500 ease-linear mx-10 hidden md:flex;
     }
 
     .form {
-        @apply w-[35rem] p-6 duration-500 ease-linear;
+        @apply  w-[100%] md:w-[23rem] lg:w-[30rem] p-6 duration-500 ease-linear px-5;
 
         h3 {
             @apply text-center text-red-500;
@@ -18,13 +18,17 @@
             input[type="email"],
             input[type="password"] {
             display: block;
-            padding: 1rem;
+            padding: .5rem;
             margin: 1rem auto;
             width: 100%;
             border: 1px solid #777;
             border-radius: 3px;
             outline: none;
             }
+
+        button {
+            @apply w-full py-2 bg-slate-800 text-white rounded;
+        }
 
             .links {
             display: flex;
@@ -37,15 +41,22 @@
             margin: 1rem;
             }
         }
+        .google {
+            @apply bg-blue-500 w-full py-2 text-white rounded flex justify-center items-center;
+        }
         .register {
 
-            @apply flex justify-center items-start;
+            @apply flex justify-center items-start ;
 
 
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 1rem;
+            margin-top: .5rem;
+
+            .register span {
+                @apply text-blue-600;
+            }
         }
     }
 
