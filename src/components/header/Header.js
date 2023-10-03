@@ -44,61 +44,41 @@ const Header = () => {
                     <div className={`navbar ${styles.navbar}`}>
                         {logo}
                         <div className={styles['menu-box']}>
-                            <ul className="menu menu-horizontal">
                                 {/* Horizontal Navbar menu */}
-
-                                <li>
                                 {location.pathname === '/' ? (
-                                    <ScrollLink to="home" smooth={true} duration={500}>
-                                        Home
-                                    </ScrollLink>
-                                ) : (
-                                    <RouterLink to='/'>Home</RouterLink>
-                                )}
-
-                                </li>
-                                <li>
-                                    {location.pathname === '/' ? (
+                                    <ul className="menu menu-horizontal">
+                                    <li>
+                                        <ScrollLink to="home" smooth={true} duration={500}>
+                                            Home
+                                        </ScrollLink>
+                                    </li>
+                                    <li>
                                         <ScrollLink to="products" smooth={true} duration={500}>
                                             Products
                                         </ScrollLink>
-                                    ) : (
-                                        <RouterLink to='/#products'>
-                                            Products
-                                        </RouterLink>
-                                    )}
-                                </li>
-                                <li>
-                                {location.pathname === '/' ? (
-                                    <ScrollLink to="about" smooth={true} duration={500}>
-                                        About
-                                    </ScrollLink>
+                                    </li>
+                                    <li>
+                                        <ScrollLink to="about" smooth={true} duration={500}>
+                                            About
+                                        </ScrollLink>
+                                    </li>
+                                    <li>
+                                        <ScrollLink onClick={ openModal }>
+                                            Contact
+                                        </ScrollLink>
+                                    </li>
+                                    </ul>
                                 ) : (
-                                    <RouterLink to='/#about'>
-                                        About
-                                    </RouterLink>
-                                ) }
-                                </li>
-                                <li>
-                                {location.pathname === '/' ? (
-                                    <ScrollLink onClick={ openModal }>
-                                        Contact
-                                    </ScrollLink>
-                                ) :(
-                                    <RouterLink to='/' onClick={ openModal } >
-                                        Contact
-                                    </RouterLink>
+                                    <ul className="menu menu-horizontal">
+                                        <li className='border rounded-lg border-red-500 hover:border-slate-500  '><RouterLink to='/'>Back to Home</RouterLink></li>
+                                    </ul>
                                 )}
-                                    
-                                </li>
-                            </ul>
                         </div>
 
                         {/* Button */}
-                        <button className={`btn btn-sm ${styles['sign-up']}`}>
-                            <RouterLink to='/login'>Sign In</RouterLink>
-                        </button>
-
+                        <RouterLink to='/login'>
+                            <button className={`btn btn-sm ${styles['sign-up']}`}>Sign In</button>
+                        </RouterLink>
                         {/* Menu Icon */}
                         <div className="flex md:hidden">
                             <label htmlFor="my-drawer-4" className="btn btn-square btn-ghost">
