@@ -17,42 +17,27 @@
             input[type="text"],
             input[type="email"],
             input[type="password"] {
-            display: block;
-            padding: .5rem;
-            margin: 1rem auto;
-            width: 100%;
-            border: 1px solid #777;
-            border-radius: 3px;
-            outline: none;
+                @apply block p-2 my-4 mx-auto w-full border border-gray-400 rounded-md outline-none;
             }
 
-        button {
-            @apply w-full py-2 bg-slate-800 text-white rounded;
-        }
+            button {
+                @apply w-full py-2 bg-slate-800 text-white rounded;
+            }
 
             .links {
-            display: flex;
-            justify-content: space-between;
-            margin: 5px 0;
+                @apply flex justify-between my-1;
             }
   
             p {
-            text-align: center;
-            margin: 1rem;
+                @apply text-center m-4;
             }
         }
         .google {
-            @apply bg-blue-500 w-full py-2 text-white rounded flex justify-center items-center;
+            @apply bg-blue-500 w-full py-2 text-white rounded flex justify-center items-center;;
         }
         .register {
 
-            @apply flex justify-center items-start ;
-
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: .5rem;
+            @apply flex justify-center items-start mt-2;
 
             .register span {
                 @apply text-blue-600;
@@ -65,6 +50,6 @@
 
 @media screen and (max-width: 700px) {
     .img {
-        display: none;
+        @apply hidden;
     }
 }
