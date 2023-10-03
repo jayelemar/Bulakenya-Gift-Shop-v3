@@ -69,16 +69,22 @@ const Header = () => {
                                     </li>
                                     </ul>
                                 ) : (
-                                    <ul className="menu menu-horizontal">
-                                        <li className='border rounded-lg border-red-500 hover:border-slate-500  '><RouterLink to='/'>Back to Home</RouterLink></li>
-                                    </ul>
+                                    <div></div>
                                 )}
                         </div>
-
+                        
                         {/* Button */}
-                        <RouterLink to='/login'>
-                            <button className={`btn btn-sm ${styles['sign-up']}`}>Sign In</button>
-                        </RouterLink>
+                        {location.pathname === '/' ? (
+                            <RouterLink to='/login'>
+                                <button className={`btn btn-sm ${styles['sign-up']}`}>Sign In</button>
+                            </RouterLink>
+                        ) : (
+                            <RouterLink to='/'>
+                                <button className={`btn btn-sm ${styles['sign-up']}`}>Back to Home</button>
+                            </RouterLink>
+                        )}
+
+                        
                         {/* Menu Icon */}
                         <div className="flex md:hidden">
                             <label htmlFor="my-drawer-4" className="btn btn-square btn-ghost">
@@ -90,57 +96,41 @@ const Header = () => {
                 {/* mobile navbar */}
                 <div className={`drawer-side ${styles['drawer-side']}`}>
                     <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
-                    <ul className="menu">
-                        {logo}
-                        <li>
-                        {location.pathname === '/' ? (
-                            <ScrollLink
-                                to="home"
+                    
+                    {location.pathname === '/' ? (
+                        <ul className="menu">
+                            {logo}
+                            <li>
+                                <ScrollLink
+                                    to="home"
+                                    smooth={true}
+                                    duration={500}
+                                    onClick={closeMobileNav}
+                                >
+                                    Home
+                                </ScrollLink>
+                            </li>
+                            <li>
+                                <ScrollLink
+                                    to="products"
+                                    smooth={true}
+                                    duration={500}
+                                    onClick={closeMobileNav}
+                                >
+                                    Products
+                                </ScrollLink>
+                            </li>
+                            <li>
+                                <ScrollLink
+                                to="about"
                                 smooth={true}
                                 duration={500}
                                 onClick={closeMobileNav}
-                            >
-                                Home
-                            </ScrollLink>
-                        ) : (
-                            <RouterLink to='/' onClick={ closeMobileNav }>
-                                Home
-                            </RouterLink>
-                        )}
-                        </li>
-                        <li>
-                        {location.pathname === '/' ? (
-                            <ScrollLink
-                                to="products"
-                                smooth={true}
-                                duration={500}
-                                onClick={closeMobileNav}
-                            >
-                                Products
-                            </ScrollLink>
-                        ) : (
-                            <RouterLink to='/#products' onClick={closeMobileNav}>
-                                Products
-                            </RouterLink>
-                        )}
-                        </li>
-                        <li>
-                        {location.pathname === '/' ? (
-                            <ScrollLink
-                            to="about"
-                            smooth={true}
-                            duration={500}
-                            onClick={closeMobileNav}
-                            >
-                                About
-                            </ScrollLink>
-                        ) : (
-                            <RouterLink to='/#about' onClick={closeMobileNav}>
-                                About
-                            </RouterLink>
-                        )}
-                        </li>
-                        <li>
+                                >
+                                    About
+                                </ScrollLink>
+                            </li>
+                            <li>
                             <ScrollLink  onClick={ () => {
                                 closeMobileNav();
                                 openModal();
@@ -148,11 +138,22 @@ const Header = () => {
                             }>
                                 Contact
                             </ScrollLink>
-                        </li>
-                        <button className={`btn btn-sm ${styles['sign-up']}`}>
-                            <RouterLink to='/login'>Sign In</RouterLink>
-                        </button>
-                    </ul>
+                            </li>
+                            <RouterLink to='/login'>
+                                <button className={`btn btn-sm w-full ${styles['sign-up']}`}>Sign In</button>
+                            </RouterLink>
+                        </ul>
+
+                    ) : (
+                        <ul className="menu">
+                            {logo}
+                            <li>
+                                <RouterLink to='/' onClick={ closeMobileNav }>
+                                    Back to Home
+                                </RouterLink>
+                            </li>
+                        </ul>
+                    )}
                 </div>
             </div>
         </header>
