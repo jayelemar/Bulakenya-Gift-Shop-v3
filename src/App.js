@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { Home, NotFound, Login, Register, Reset } from './pages'
 import { Header, Footer } from './components'
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
               <Route path="/reset" element={ <Reset /> } />
           </Routes>
           <Footer />
+          <ToastContainer position="top-right" autoClose={3000} />
         </>
   );
 }
