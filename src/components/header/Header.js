@@ -14,10 +14,10 @@ const Header = () => {
 
     const logo = (
         <div className={`flex ${styles.logo}`}>
-            <a href='/' className="btn btn-ghost">
+            <RouterLink to='/' className="btn btn-ghost">
                 <img src={logoSource} alt="bulakenya-logo" width={45} />
                 <h1>Bulakenya Gift Shop</h1>
-            </a>
+            </RouterLink>
         </div>
     )
 
@@ -63,7 +63,7 @@ const Header = () => {
                                         </ScrollLink>
                                     </li>
                                     <li>
-                                        <ScrollLink onClick={ openModal }>
+                                        <ScrollLink to='/#' onClick={ openModal }>
                                             Contact
                                         </ScrollLink>
                                     </li>
@@ -79,7 +79,7 @@ const Header = () => {
                                 <button className={`btn btn-sm ${styles['sign-up']}`}>Sign In</button>
                             </RouterLink>
                         ) : (
-                            <RouterLink to='/'>
+                            <RouterLink to='/#'>
                                 <button className={`btn btn-sm ${styles['sign-up']}`}>Back to Home</button>
                             </RouterLink>
                         )}
@@ -131,7 +131,7 @@ const Header = () => {
                                 </ScrollLink>
                             </li>
                             <li>
-                            <ScrollLink  onClick={ () => {
+                            <ScrollLink to='/#' onClick={ () => {
                                 closeMobileNav();
                                 openModal();
                                 }
