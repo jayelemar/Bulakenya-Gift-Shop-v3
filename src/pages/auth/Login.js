@@ -3,41 +3,9 @@ import styles from './auth.module.scss'
 import loginImg from '../../assets/login.svg'
 import { Link } from 'react-router-dom'
 import { AiOutlineGoogle } from 'react-icons/ai'
-import Card from '../../components/card/Card'
-import supabase from '../../supabase/config'
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';     
+import Card from '../../components/card/Card'    
 
 const Login = () => {
-
-    const signInWithGoogle = async () => {
-        try {
-                const { user, error } = await supabase.auth.signIn({
-                    provider: 'google',
-                });
-                if (error) {
-                    console.error(error);
-                    toast.error('Google login failed');
-                } else {
-                    console.log(user);
-                    toast.success('Google login successful');
-                }
-            } 
-        catch (error) {
-            console.error(error);
-            toast.error('An error occurred while logging in with Google');
-        }
-    };
-
-    supabase.auth.onAuthStateChange(async(event) => {
-        if (event != 'SIGNED_OUT') {
-            //forward to success URL
-            toast.success('Google login successful');
-        } else {
-            //forward to failed URL
-            toast.error('Google login failed');
-        }
-    })
 
   return (
     <section>
@@ -58,7 +26,7 @@ const Login = () => {
                         </div>
                             <p>-- or --</p>
                         </form>
-                        <button className={styles.google} onClick={signInWithGoogle}> <AiOutlineGoogle size={25}/> &nbsp; Login with Google</button>
+                        <button className={styles.google} > <AiOutlineGoogle size={25}/> &nbsp; Login with Google</button>
                         <span className={styles.register}>
                             <p>Don't have an account?</p>
                             <Link to="/register"> &nbsp; Register</Link>
