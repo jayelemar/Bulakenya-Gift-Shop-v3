@@ -4,9 +4,9 @@ import loginImg from '../../assets/login.svg'
 import { Link, useNavigate } from 'react-router-dom'
 import { AiOutlineGoogle } from 'react-icons/ai'
 import Card from '../../components/card/Card'  
-import { auth } from '../../firebase/config'
 import { toast } from 'react-toastify'
 import Loader from '../../components/loader/Loader'
+import { auth } from '../../firebase/config'
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";  
 
 
