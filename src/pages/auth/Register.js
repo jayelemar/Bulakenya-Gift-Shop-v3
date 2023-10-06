@@ -22,7 +22,7 @@ const Register = () => {
         // console.log(email, password, confirmPassword)
 
         if(password !== confirmPassword) {
-            toast.error("Registration Failed: Password do not match.")
+            toast.error("Password do not match.")
             setIsLoading(true);
         } 
 
@@ -36,6 +36,7 @@ const Register = () => {
             })
             .catch((error) => {
                 toast.error(error.message)
+                setIsLoading(false);
             });
 
 
