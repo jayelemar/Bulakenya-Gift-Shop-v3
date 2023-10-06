@@ -2,16 +2,20 @@ import { Link as ScrollLink} from 'react-scroll'
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom'
 import logoSource from '../../assets/bulakenya-logo.png'
 import styles from './Header.module.scss'
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import ModalContext from '../../context/ModalContext';
 import { auth } from '../../firebase/config';
-import { signOut } from 'firebase/auth';
+import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { toast } from 'react-toastify';
+import { FaUserCircle } from 'react-icons/fa'
+
 
 
 const Header = () => {
     const location = useLocation();
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+    const [displayName, setDisplayName] = useState("")
+
     const { openModal } = useContext(ModalContext)
     const navigate = useNavigate()
 
@@ -40,6 +44,19 @@ const Header = () => {
                 toast.error(error.message)
             });
     };
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const uid = user.uid;
+                console.log(user.displayName);
+                setDisplayName(user.displayName)
+              // ...
+            } else {
+                setDisplayName("")
+            }
+            });
+    }, [])
 
     return (
         <header>
@@ -86,6 +103,10 @@ const Header = () => {
                         </div>
                         
                         {/* Button */}
+                        <RouterLink>
+                            <FaUserCircle size={16}/>
+                            &nbsp; Hi, {displayName} 
+                        </RouterLink>
                         <RouterLink to="/" onClick={logOutUser}>Logout</RouterLink>
                         {location.pathname === '/' ? (
                             <RouterLink to='/login'>
