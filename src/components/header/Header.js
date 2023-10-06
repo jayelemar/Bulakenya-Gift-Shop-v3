@@ -1,16 +1,19 @@
 import { Link as ScrollLink} from 'react-scroll'
-import { Link as RouterLink, useLocation } from 'react-router-dom'
+import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom'
 import logoSource from '../../assets/bulakenya-logo.png'
 import styles from './Header.module.scss'
 import { useState, useContext } from 'react';
 import ModalContext from '../../context/ModalContext';
+import { auth } from '../../firebase/config';
+import { signOut } from 'firebase/auth';
+import { toast } from 'react-toastify';
+
 
 const Header = () => {
     const location = useLocation();
-
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-
     const { openModal } = useContext(ModalContext)
+    const navigate = useNavigate()
 
     const logo = (
         <div className={`flex ${styles.logo}`}>
@@ -27,6 +30,15 @@ const Header = () => {
 
     const closeMobileNav = () => {
         setIsMobileNavOpen(false);
+    };
+
+    const logOutUser = () => {
+        signOut(auth).then(() => {
+                toast.success("Logout Successfully")
+                navigate("/l")
+            }).catch((error) => {
+                toast.error(error.message)
+            });
     };
 
     return (
@@ -74,6 +86,7 @@ const Header = () => {
                         </div>
                         
                         {/* Button */}
+                        <RouterLink to="/" onClick={logOutUser}>Logout</RouterLink>
                         {location.pathname === '/' ? (
                             <RouterLink to='/login'>
                                 <button className={`btn btn-sm ${styles['sign-up']}`}>Sign In</button>
