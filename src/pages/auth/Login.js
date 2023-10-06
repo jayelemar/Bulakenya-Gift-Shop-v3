@@ -4,10 +4,11 @@ import loginImg from '../../assets/login.svg'
 import { Link, useNavigate } from 'react-router-dom'
 import { AiOutlineGoogle } from 'react-icons/ai'
 import Card from '../../components/card/Card'  
-import { signInWithEmailAndPassword } from "firebase/auth";  
-import { auth } from '../../firebase/config'
 import { toast } from 'react-toastify'
 import Loader from '../../components/loader/Loader'
+import { auth } from '../../firebase/config'
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";  
+
 
 
 const Login = () => {
@@ -15,6 +16,7 @@ const Login = () => {
     const [password, setPassword] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const navigate = useNavigate();
+    
 
     const loginUser = (e) => {
         e.preventDefault();
@@ -31,6 +33,19 @@ const Login = () => {
             .catch((error) => {
                 toast.error(error.message)
                 setIsLoading(false)
+            });
+    };
+
+    const provider = new GoogleAuthProvider();
+    const signInWithGoogle = () => {
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                const user = result.user;
+                toast.success("Login SUccessfully")
+                navigate("/")
+            }).catch((error) => {
+                toast.error(error.message)
+                
             });
     };
 
@@ -71,7 +86,11 @@ const Login = () => {
                         </div>
                             <p>-- or --</p>
                         </form>
-                        <button className={styles.google} type='submit' > <AiOutlineGoogle size={25}/> &nbsp; Login with Google</button>
+                        <button 
+                            className={styles.google} 
+                            type='submit'
+                            onClick={signInWithGoogle}
+                        > <AiOutlineGoogle size={25}/> &nbsp; Login with Google</button>
                         <span className={styles.register}>
                             <p>Don't have an account?</p>
                             <Link to="/register"> &nbsp; Register</Link>
