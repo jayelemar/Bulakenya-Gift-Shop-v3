@@ -15,7 +15,7 @@
         @apply bg-white flex flex-row justify-between m-0 p-0 w-full;
 
         .menu-box {
-            @apply hidden md:flex;
+            @apply hidden lg:flex;
 
             ul {
                 @apply text-red-400;
@@ -23,9 +23,11 @@
         }
 
         .sign-up {
-            @apply md:btn-lg rounded-none bg-red-500 text-slate-100 hover:btn-neutral hidden md:flex;
+            @apply btn-sm lg:btn-lg rounded-none bg-red-500 text-slate-100 hover:btn-neutral hidden lg:flex;
         }
     }
+
+
 }
 
 .drawer-side {
