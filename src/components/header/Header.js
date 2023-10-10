@@ -8,16 +8,20 @@ import { auth } from '../../firebase/config';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { FaUserCircle } from 'react-icons/fa'
+import { useDispatch } from 'react-redux'
+import { SET_ACTIVE_USER, REMOVE_ACTIVE_USER } from '../../redux/features/auth/authSlice';
+import ShowOnLogin from '../hiddenLink/ShowOnLogin';
 
 
 
 const Header = () => {
-    const location = useLocation();
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
     const [displayName, setDisplayName] = useState("")
-
+    
+    const location = useLocation();
     const { openModal } = useContext(ModalContext)
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const logo = (
         <div className={`flex ${styles.logo}`}>
@@ -48,15 +52,19 @@ const Header = () => {
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                const uid = user.uid;
-                console.log(user.displayName);
                 setDisplayName(user.displayName)
-              // ...
+                dispatch(SET_ACTIVE_USER({
+                    email: user.email,
+                    userName: user.displayName,
+                    userID: user.uid,
+                }))
             } else {
-                setDisplayName("")
+                setDisplayName("");
+                dispatch( REMOVE_ACTIVE_USER() )
+
             }
             });
-    }, [])
+    }, [dispatch, displayName])
 
     return (
         <header>
@@ -103,11 +111,14 @@ const Header = () => {
                         </div>
                         
                         {/* Button */}
-                        <RouterLink>
-                            <FaUserCircle size={16}/>
-                            &nbsp; Hi, {displayName} 
-                        </RouterLink>
-                        <RouterLink to="/" onClick={logOutUser}>Logout</RouterLink>
+                        <ShowOnLogin>
+                            <RouterLink><FaUserCircle size={16}/> &nbsp; Hi, {displayName} </RouterLink>
+                        </ShowOnLogin>
+
+                        <ShowOnLogin>
+                            <RouterLink to="/" onClick={logOutUser}>Logout</RouterLink>
+                        </ShowOnLogin>
+
                         {location.pathname === '/' ? (
                             <RouterLink to='/login'>
                                 <button className={`btn btn-sm ${styles['sign-up']}`}>Sign In</button>
