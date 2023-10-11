@@ -41,7 +41,7 @@
         }
 
         button {
-            @apply md:btn-lg rounded-none bg-red-500 text-slate-100 hover:btn-neutral rounded-md mt-5;
+            @apply md:btn-lg lg:rounded-none bg-red-500 text-slate-100 hover:btn-neutral rounded-md mt-5;
         }
     }
 }

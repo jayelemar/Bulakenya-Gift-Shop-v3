@@ -84,10 +84,12 @@ const Register = () => {
                         />
                         <button type='submit'>Register</button>
                     </form>
-                    <span className={styles.register}>
-                        <p>Already have an account?</p>
-                        <Link to="/login"> &nbsp; Login</Link>
-                    </span>
+                    <div className={styles.register}>
+                        <p>Already have an account?</p> 
+                        <Link to="/login"> 
+                            <span>&nbsp; Login</span>
+                        </Link>
+                    </div>
                 </div>
             </Card>
         </div>

@@ -91,10 +91,10 @@ const Login = () => {
                             type='submit'
                             onClick={signInWithGoogle}
                         > <AiOutlineGoogle size={25}/> &nbsp; Login with Google</button>
-                        <span className={styles.register}>
+                        <div className={styles.register}>
                             <p>Don't have an account?</p>
-                            <Link to="/register"> &nbsp; Register</Link>
-                        </span>
+                            <Link to="/register"> <span>&nbsp; Register</span></Link>
+                        </div>
                     </div>
                 </Card>
         

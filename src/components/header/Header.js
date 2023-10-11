@@ -134,7 +134,7 @@ const Header = () => {
                                 </RouterLink>
                             ) : (
                                 <RouterLink to='/#'>
-                                    <button className={`btn btn-sm ${styles['sign-up']}`}>Back to Home</button>
+                                    <button className='mx-6'>Back to Home</button>
                                 </RouterLink>
                             )}
                         </ShowOnLogout>
@@ -205,9 +205,9 @@ const Header = () => {
                             </ShowOnLogin>
                             </li>
                             <ShowOnLogout>
-                                
-                                    <button className={`btn btn-sm w-full ${styles['sign-up']}`}><RouterLink to='/login'>Sign In</RouterLink></button>
-                                
+                                <RouterLink to='/login'>
+                                    <button className={`btn btn-sm w-full ${styles['sign-up']}`} onClick={ closeMobileNav }>Sign In</button>
+                                    </RouterLink>
                             </ShowOnLogout>
 
                             

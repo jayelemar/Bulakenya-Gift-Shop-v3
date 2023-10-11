@@ -37,10 +37,10 @@
         }
         .register {
 
-            @apply flex justify-center items-start mt-2;
+            @apply flex justify-center items-start mt-2 ;
 
             .register span {
-                @apply text-blue-600;
+                @apply text-blue-600 text-sm;
             }
         }
     }
