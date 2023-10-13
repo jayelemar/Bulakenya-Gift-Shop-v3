@@ -1,0 +1,35 @@
+.logo a {
+  @apply text-xl text-red-500 normal-case;
+}
+.logo a h1 {
+  @apply text-lg md:text-lg lg:text-2xl m-0;
+}
+
+.drawer-content {
+  @apply flex flex-col;
+}
+.drawer-content .navbar {
+  @apply bg-white flex flex-row justify-between m-0 p-0 w-full;
+}
+.drawer-content .navbar .menu-box {
+  @apply hidden lg:flex;
+}
+.drawer-content .navbar .menu-box ul {
+  @apply text-red-400;
+}
+.drawer-content .navbar .sign-up {
+  @apply btn-sm lg:btn-lg rounded-none bg-red-500 text-slate-100 hover:btn-neutral hidden lg:flex;
+}
+
+.drawer-side {
+  @apply z-10;
+}
+.drawer-side ul {
+  @apply p-4 w-80 min-h-full bg-base-200 text-base-content rounded-l-2xl rounded-tl-2xl;
+}
+.drawer-side ul li {
+  @apply mt-4;
+}
+.drawer-side ul button {
+  @apply md:btn-lg lg:rounded-none bg-red-500 text-slate-100 hover:btn-neutral rounded-md mt-5;
+}

@@ -1,42 +1,85 @@
-import React from 'react'
-import axios from 'axios';
 import { useState } from 'react';
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
+import styles from './Slider.module.scss'
+import { sliderData } from './slider-data';
 
 const Slider = () => {
-        // console.log(files[0]);
-        const [selectedImage, setSelectedImage] = useState(null);
+    
+    const [currentSlide, setCurrentSlide] = useState(0)
 
-        const imageUrl = 'https://res.cloudinary.com/dbjn51v3x/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1697063976/hz5egbemlrpegazajq0v.png';
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         setCurrentSlide((currentSlide) => 
+    //             (currentSlide < 5 ? currentSlide + 1 : 1)
+    //         , 3000);
 
-        const handleImageChange = (e) => {
-            const file = e.target.files[0];
-            setSelectedImage(file);
-        };
+    //         return () => {
+    //             clearInterval(interval);
+    //         };
+    //     })
 
-        const handleImageUpload = async () => {
-            if (selectedImage) {
-                const formData = new FormData();
-                formData.append('file', selectedImage);
-                formData.append('upload_preset', 'a6i8f07s'); // Replace with your Cloudinary upload preset
+    // },[])
 
-                try {
-                    const response = await axios.post('https://api.cloudinary.com/v1_1/dbjn51v3x/image/upload', formData);
-                    console.log('Image uploaded:', response.data);
-                  // Handle the Cloudinary response as needed (e.g., save the URL to your database).
-                } catch (error) {
-                    console.error('Error uploading image:', error);
-                }
-            }
-        };
+return (
+    <section className='slider'>
+        <div className="carousel w-full">
+            <AiOutlineArrowLeft className={`${styles.arrow} ${styles.prev}`}/>
+            <AiOutlineArrowRight className={`${styles.arrow} ${styles.next}`}/>
 
-        return (
-            <div>
-                <input type="file" onChange={handleImageChange} />
-                <button onClick={handleImageUpload}>Upload Image</button>
+            {sliderData.map((slide, index) => {
+                const { image, heading, desc } = slide;
 
-                <img src={ imageUrl } alt="Your Image" style={{ width: 200 }} />
-            </div>
-        );
-      };
+                return (
+                    <div key={index} className={index === currentSlide ? 'slide current' : 'slide'}>
+                        {index === currentSlide && (
+                            <>
+                                <img src={image} alt="slide" />
+                                <div className="content">
+                                    <h2>{heading}</h2>
+                                    <p>{desc}</p>
+                                    <hr />
+                                    <a href="#product" className='btn btn-primary'>
+                                        Shop Now
+                                    </a>
+                                </div>
+                            </>
+                        )}
+                    </div>
+                )
+            })}
+
+
+            {/* <div id="slide1" className={`carousel-item relative w-full ${currentSlide === 1 ? 'active' : ''}`}>
+                <img alt='image-1' src="/images/stock/photo-1625726411847-8cbb60cc71e6.jpg" className="w-full" />
+                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#slide4" className="btn btn-circle">❮</a> 
+                    <a href="#slide2" className="btn btn-circle">❯</a>
+                </div>
+            </div> 
+            <div id="slide2" className={`carousel-item relative w-full ${currentSlide === 1 ? 'active' : ''}`}>
+                <img alt='image-2' src="/images/stock/photo-1609621838510-5ad474b7d25d.jpg" className="w-full" />
+                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#slide1" className="btn btn-circle">❮</a> 
+                    <a href="#slide3" className="btn btn-circle">❯</a>
+                </div>
+            </div> 
+            <div id="slide3" className={`carousel-item relative w-full ${currentSlide === 1 ? 'active' : ''}`}>
+                <img alt='image-3' src="/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full" />
+                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#slide2" className="btn btn-circle">❮</a> 
+                    <a href="#slide4" className="btn btn-circle">❯</a>
+                </div>
+            </div> 
+            <div id="slide4" className={`carousel-item relative w-full ${currentSlide === 1 ? 'active' : ''}`}>
+                <img alt='image-4' src="/images/stock/photo-1665553365602-b2fb8e5d1707.jpg" className="w-full" />
+                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#slide3" className="btn btn-circle">❮</a> 
+                    <a href="#slide1" className="btn btn-circle">❯</a>
+                </div>
+            </div> */}
+        </div>
+    </section>
+)
+}
 
 export default Slider
