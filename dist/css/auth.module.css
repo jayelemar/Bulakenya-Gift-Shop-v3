@@ -1,0 +1,41 @@
+.auth {
+  @apply h-[80vh] flex justify-center items-center bg-slate-100 px-5;
+}
+.auth .img {
+  @apply duration-500 ease-linear mx-10 hidden md:flex;
+}
+.auth .form {
+  @apply w-[100%] md:w-[23rem] lg:w-[30rem] p-6 duration-500 ease-linear px-5;
+}
+.auth .form h3 {
+  @apply text-center text-red-500;
+}
+.auth .form form input[type=text],
+.auth .form form input[type=email],
+.auth .form form input[type=password] {
+  @apply block p-2 my-4 mx-auto w-full border border-gray-400 rounded-md outline-none;
+}
+.auth .form form button {
+  @apply w-full py-2 bg-slate-800 text-white rounded;
+}
+.auth .form form .links {
+  @apply flex justify-between my-1;
+}
+.auth .form form p {
+  @apply text-center m-4;
+}
+.auth .form .google {
+  @apply bg-blue-500 w-full py-2 text-white rounded flex justify-center items-center;
+}
+.auth .form .register {
+  @apply flex justify-center items-start mt-2;
+}
+.auth .form .register .register span {
+  @apply text-blue-600 text-sm;
+}
+
+@media screen and (max-width: 700px) {
+  .img {
+    @apply hidden;
+  }
+}

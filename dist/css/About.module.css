@@ -1,0 +1,42 @@
+.about {
+  @apply bg-red-400 p-8;
+}
+.about h4 {
+  @apply text-white text-2xl md:text-3xl;
+}
+.about .desc {
+  @apply flex flex-col md:flex-row text-white;
+}
+.about .desc .details {
+  @apply mb-5;
+}
+.about .desc .details p {
+  @apply my-2 text-sm md:text-xl;
+}
+.about .desc .details p span {
+  @apply block font-bold;
+}
+.about .desc .social {
+  @apply mb-0 relative md:left-32 lg:left-44;
+}
+.about .desc .social h4 {
+  @apply text-white ml-5 text-2xl hidden md:block;
+}
+.about .desc .social .icons {
+  @apply flex w-full justify-start items-center p-3 hover:cursor-default;
+}
+.about .desc .social .icons a .facebook {
+  @apply rounded-full text-white mx-1 hover:cursor-pointer;
+}
+.about .desc .social .icons a {
+  @apply hover:cursor-default;
+}
+.about .desc .social .icons a .shopee {
+  @apply text-white relative bottom-1 mx-6 md:mx-16 my-4 hover:cursor-pointer;
+}
+.about .desc .social .icons a img {
+  @apply hover:cursor-pointer;
+}
+.about .desc .social .icons a img .lazada {
+  @apply w-full h-full hover:cursor-pointer;
+}
