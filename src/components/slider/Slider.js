@@ -6,6 +6,15 @@ import { sliderData } from './slider-data';
 const Slider = () => {
     
     const [currentSlide, setCurrentSlide] = useState(0)
+    const slideLength = sliderData.length;
+    // console.log(slideLength);
+
+    const handleNextSlide = () => {
+        setCurrentSlide(currentSlide === slideLength -1 ? 0 : currentSlide + 1)
+    };
+    const handlePrevSlide = () => {
+        setCurrentSlide(currentSlide === 0 ? slideLength - 1: currentSlide -1)
+    };
 
     // useEffect(() => {
     //     const interval = setInterval(() => {
@@ -23,8 +32,14 @@ const Slider = () => {
 return (
     <section className='slider'>
         <div className="carousel w-full">
-            <AiOutlineArrowLeft className={`${styles.arrow} ${styles.prev}`}/>
-            <AiOutlineArrowRight className={`${styles.arrow} ${styles.next}`}/>
+            <AiOutlineArrowLeft 
+                className={`${styles.arrow} ${styles.prev}`}
+                onClick={handlePrevSlide}
+            />
+            <AiOutlineArrowRight 
+                className={`${styles.arrow} ${styles.next}`}
+                onClick={handleNextSlide}
+            />
 
             {sliderData.map((slide, index) => {
                 const { image, heading, desc } = slide;
@@ -34,7 +49,7 @@ return (
                         {index === currentSlide && (
                             <>
                                 <img src={image} alt="slide" />
-                                <div className="content">
+                                <div className={`${styles.content}`}>
                                     <h2>{heading}</h2>
                                     <p>{desc}</p>
                                     <hr />
