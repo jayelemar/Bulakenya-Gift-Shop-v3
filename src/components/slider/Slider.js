@@ -3,31 +3,29 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
 import { RxDotFilled } from 'react-icons/rx'
 import styles from './Slider.module.scss'
 import { sliderData } from './slider-data';
+import { useEffect } from 'react';
 
 const Slider = () => {
     
     const [currentSlide, setCurrentSlide] = useState(0)
+    const slideLength = sliderData.length;
+    // console.log(slideLength);
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setCurrentSlide((currentSlide) => 
-    //             (currentSlide < 5 ? currentSlide + 1 : 1)
-    //         , 3000);
+    const autoScroll = true;
+    let slideInterval;
+    let intervalTime = 5000;
 
-    //         return () => {
-    //             clearInterval(interval);
-    //         };
-    //     })
+    const handleNextSlide = () => {
+        setCurrentSlide(currentSlide === slideLength -1 ? 0 : currentSlide + 1)
+    };
+    const handlePrevSlide = () => {
+        setCurrentSlide(currentSlide === 0 ? slideLength - 1: currentSlide -1)
+    };
+    
+    useEffect(() => {
+        setCurrentSlide(0)
+    }, [])
 
-<<<<<<< Updated upstream
-    // },[])
-
-return (
-    <section className='slider'>
-        <div className="carousel w-full">
-            <AiOutlineArrowLeft className={`${styles.arrow} ${styles.prev}`}/>
-            <AiOutlineArrowRight className={`${styles.arrow} ${styles.next}`}/>
-=======
     function auto() {
         
     }
@@ -51,16 +49,14 @@ return (
                     size={30}
                 />
             </div>
+            
             <div className={`${styles.arrow} group-hover:block ${styles.next}`}>
                 <BsChevronCompactRight
                     onClick={handleNextSlide} 
                     size={30}
                 />
             </div>
-
-
->>>>>>> Stashed changes
-
+            
             {sliderData.map((slide, index) => {
                 const { image } = slide;
 
@@ -68,18 +64,6 @@ return (
                     <div key={index} className={index === currentSlide ? 'slide current' : 'slide'}>
                         {index === currentSlide && (
                                 <img src={image} alt="slide" />
-<<<<<<< Updated upstream
-                                <div className="content">
-                                    <h2>{heading}</h2>
-                                    <p>{desc}</p>
-                                    <hr />
-                                    <a href="#product" className='btn btn-primary'>
-                                        Shop Now
-                                    </a>
-                                </div>
-                            </>
-=======
->>>>>>> Stashed changes
                         )}
                     </div>
                 )
