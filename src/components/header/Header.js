@@ -69,7 +69,7 @@ const Header = () => {
 
     return (
         <header>
-            <div className=""></div>
+            <div className="container"></div>
             <div className="drawer drawer-end container">
                 <input id="my-drawer-4"
                     type="checkbox"
@@ -78,7 +78,7 @@ const Header = () => {
                     onChange={toggleMobileNav}
                 />
                 {/* Header */}
-                <div className={`drawer-content ${styles['drawer-content']}`}>
+                <div className={`container drawer-content ${styles['drawer-content']}`}>
                     <div className={`navbar ${styles.navbar}`}>
                         {logo}
                         <div className={styles['menu-box']}>
