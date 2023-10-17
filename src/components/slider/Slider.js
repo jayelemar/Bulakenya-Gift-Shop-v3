@@ -7,9 +7,9 @@ import { sliderData } from './slider-data';
 const Slider = () => {
     const [currentSlide, setCurrentSlide] = useState(0)
     const [autoScroll, setAutoScroll] = useState(true)
+    const slideLength = sliderData.length
     const intervalTime = 5000;
     let slideInterval;
-    const slideLength = sliderData.length
     
     const handleNextSlide = () => {
         setCurrentSlide(currentSlide === slideLength -1 ? 0 : currentSlide + 1)
@@ -17,6 +17,10 @@ const Slider = () => {
 
     const handlePrevSlide = () => {
         setCurrentSlide(currentSlide === 0 ? slideLength - 1 : currentSlide -1);
+    };
+
+    const goToSlide = (index) => {
+        setCurrentSlide(index);
     };
 
 
@@ -50,7 +54,7 @@ const Slider = () => {
                     const { image } = slide;
 
                     return (
-                        <div key={index} className={index === currentSlide ? 'slide current' : 'slide'}>
+                        <div key={index} className={index === currentSlide ?  `${styles.slide} ${styles.current}` : `${styles.slide}`}>
                             {index === currentSlide && (
                                 <img src={image} alt="slide" />
                             )}
@@ -60,7 +64,9 @@ const Slider = () => {
 
                 <div className={styles.dot}>
                     {sliderData.map((slide, index) => (
-                        <div className='text-2xl'>
+                        <div key={index} 
+                            onClick={() => goToSlide(index)} 
+                            className={`text-xl cursor-pointer ${index === currentSlide ? styles.activeDot : ''}`}>
                             <RxDotFilled />
                         </div>
                     ))}
