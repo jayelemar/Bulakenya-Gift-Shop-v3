@@ -1,6 +1,5 @@
 .home {
-    min-height: 500px;
-    @apply hero bg-base-100;
+    @apply hero bg-base-100 h-full;
 
     .content {
         @apply bg-base-100 hero-content flex-col md:flex-row lg:flex-row-reverse p-0;
