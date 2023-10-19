@@ -50,14 +50,10 @@ const Slider = () => {
                     const { image } = slide;
 
                     return (
-<<<<<<< Updated upstream
-                        <div key={index} className={index === currentSlide ? 'slide current' : 'slide'}>
-=======
                         <div 
                             key={index} 
                             className={`carousel-item ${styles.slide} ${index === currentSlide ? styles.current : ''}`}
                         >
->>>>>>> Stashed changes
                             {index === currentSlide && (
                                 <img src={image} alt="slide" width={500}/>
                             )}
@@ -68,7 +64,7 @@ const Slider = () => {
 
                 <div className={styles.dot}>
                     {sliderData.map((slide, index) => (
-                        <div className='text-2xl'>
+                        <div className={`text-2xl ${index === currentSlide ? styles.activeDot : ''}`}>
                             <RxDotFilled />
                         </div>
                     ))}
