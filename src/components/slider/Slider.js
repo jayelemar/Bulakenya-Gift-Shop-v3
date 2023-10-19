@@ -49,18 +49,19 @@ const Slider = () => {
                     />
                 </div>
 
-
+                
                 {sliderData.map((slide, index) => {
                     const { image } = slide;
 
                     return (
                         <div key={index} className={index === currentSlide ?  `${styles.slide} ${styles.current}` : `${styles.slide}`}>
                             {index === currentSlide && (
-                                <img src={image} alt="slide" />
+                                <img src={image} alt="slide" width={500}/>
                             )}
                         </div>
                     )
                 })}
+                
 
                 <div className={styles.dot}>
                     {sliderData.map((slide, index) => (

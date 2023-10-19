@@ -1,8 +1,9 @@
 .home {
+    min-height: 500px;
     @apply hero bg-base-100;
 
     .content {
-        @apply bg-base-100 hero-content flex-col-reverse md:flex-row lg:flex-row-reverse p-0;
+        @apply bg-base-100 hero-content flex-col md:flex-row lg:flex-row-reverse p-0;
 
         img {
             @apply shadow-2xl;
@@ -24,7 +25,7 @@
             }
 
             button {
-                @apply btn btn-neutral btn-active relative my-0;
+                @apply btn btn-neutral btn-active relative mt-0 mb-6;
             }
         }
     }

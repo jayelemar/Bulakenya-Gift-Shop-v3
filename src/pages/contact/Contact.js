@@ -42,9 +42,8 @@ const Contact = () => {
 
     return (
         <section id='contact'>
-            <div style={{ height: '60px' }} className='bg-red-400 container'></div>
-            <div className="container flex justify-center items-center bg-blue-400 ">
-                <button className="btn" 
+            <div className="container flex justify-center items-center bg-red-400">
+                <button className="btn hidden" 
                     onClick={openModal}>
                 Contact Us
                 </button>
