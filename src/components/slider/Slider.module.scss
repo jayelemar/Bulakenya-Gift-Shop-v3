@@ -25,16 +25,19 @@
                 opacity: 0;
                 transform: translateX(50%);
                 transition: all 1s ease;
+                
 
                 img {
                     max-width: 100%; /* Images won't exceed the width of their container */
                     height: auto;    /* Maintains aspect ratio */
+                    @apply rounded;
                 }
             }
 
             .current {
                 opacity: 1;
                 transform: translateX(0);
+                @apply rounded;
             }
 
             .dot {
