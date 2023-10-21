@@ -3,9 +3,7 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
 import { RxDotFilled } from 'react-icons/rx'
 import styles from './Slider.module.scss'
 import { sliderData } from './slider-data';
-import { useSliderData } from '../../react-query/useSliderData';
-import { useQuery } from 'react-query';
-import Loader from '../loader/Loader';
+
 
 const Slider = () => {
     const [currentSlide, setCurrentSlide] = useState(0)
@@ -14,10 +12,7 @@ const Slider = () => {
     const intervalTime = 5000;
     let slideInterval;
 
-    const { isLoading, data } = useSliderData();
-    if (isLoading) {
-        return <Loader/>;
-    }
+
     
     const handleNextSlide = () => {
         setCurrentSlide(currentSlide === slideLength -1 ? 0 : currentSlide + 1)
@@ -32,14 +27,14 @@ const Slider = () => {
     };
 
 
-    // function auto() {
-    //     slideInterval = setInterval(handleNextSlide, intervalTime);
-    // }
+    function auto() {
+        slideInterval = setInterval(handleNextSlide, intervalTime);
+    }
 
-    // useEffect(()=> {
-    //     auto();
-    //     return () => clearInterval(slideInterval);
-    // },[currentSlide, autoScroll])
+    useEffect(()=> {
+        auto();
+        return () => clearInterval(slideInterval);
+    },[currentSlide, autoScroll])
 
     return (
         <section className={styles.slider}>
