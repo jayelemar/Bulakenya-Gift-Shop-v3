@@ -23,7 +23,7 @@
         }
 
         .sign-up {
-            @apply btn-sm lg:btn-lg rounded-none bg-red-500 text-slate-100 hover:btn-neutral hidden lg:flex;
+            @apply btn-sm lg:btn-lg rounded-none bg-red-500 text-slate-100 hover:btn-neutral hidden lg:flex relative left-[140px];
         }
     }
 
