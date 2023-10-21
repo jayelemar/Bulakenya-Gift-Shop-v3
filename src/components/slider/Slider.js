@@ -32,14 +32,14 @@ const Slider = () => {
     };
 
 
-    function auto() {
-        slideInterval = setInterval(handleNextSlide, intervalTime);
-    }
+    // function auto() {
+    //     slideInterval = setInterval(handleNextSlide, intervalTime);
+    // }
 
-    useEffect(()=> {
-        // auto();
-        return () => clearInterval(slideInterval);
-    },[currentSlide, autoScroll])
+    // useEffect(()=> {
+    //     auto();
+    //     return () => clearInterval(slideInterval);
+    // },[currentSlide, autoScroll])
 
     return (
         <section className={styles.slider}>

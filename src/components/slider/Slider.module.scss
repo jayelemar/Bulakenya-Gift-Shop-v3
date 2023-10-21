@@ -38,12 +38,12 @@
             }
 
             .dot {
-                @apply absolute flex w-full justify-center items-center bottom-6 text-red-500;
+                @apply absolute flex w-full justify-center items-center bottom-5 text-red-400;
             }
             
             .activeDot {
-                @apply text-4xl;
-              }
+                @apply text-3xl text-red-500;
+            }
         }
 }
 
