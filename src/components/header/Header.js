@@ -12,7 +12,7 @@ import { useDispatch } from 'react-redux'
 import { SET_ACTIVE_USER, REMOVE_ACTIVE_USER } from '../../redux/features/auth/authSlice';
 import ShowOnLogin from '../hiddenLink/ShowOnLogin';
 import ShowOnLogout from '../hiddenLink/ShowOnLogout';
-import AdminOnlyRoute from '../adminOnlyRoute/AdminOnlyRoute';
+import AdminOnlyLink from '../adminOnlyRoute/AdminOnlyLink';
 
 
 
@@ -113,9 +113,13 @@ const Header = () => {
                         </div>
                         <ShowOnLogin>
                         <div className='flex relative left-14'>
-                            <AdminOnlyRoute>
-                                <button className='btn btn-neutral text-slate-100 hidden lg:flex relative left-4'>Admin</button>
-                            </AdminOnlyRoute>
+                            <AdminOnlyLink>
+                                <RouterLink to='/admin'>
+                                    <button className='btn btn-neutral text-slate-100 hidden lg:flex relative left-4'>
+                                        Admin
+                                    </button>
+                                </RouterLink>
+                            </AdminOnlyLink>
                             <div className="dropdown dropdown-bottom dropdown-end flex relative left-4 ">
                                 <label tabIndex={0} className="btn m-1 hidden lg:flex">Hi, {displayName}</label>
                                 <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
@@ -205,9 +209,9 @@ const Header = () => {
                             </li>
                             <li>
                             <ShowOnLogin>
-                                <AdminOnlyRoute>
+                                <AdminOnlyLink>
                                     <RouterLink to="/" className='justify-center border border-solid bg-slate-700 item-end text-slate-100'>Admin</RouterLink>
-                                </AdminOnlyRoute>
+                                </AdminOnlyLink>
                             </ShowOnLogin>
                             </li>
                             <li>
