@@ -1,0 +1,12 @@
+.admin {
+    @apply flex;
+
+    .navbar {
+        @apply w-1/4 min-h-screen mt-16;
+        // min-height: 80vh;
+    }
+
+    .content {
+        @apply w-3/5 p-4 mt-12;
+    }
+}
