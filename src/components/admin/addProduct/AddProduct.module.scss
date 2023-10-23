@@ -1,0 +1,34 @@
+.product {
+    .card {
+        @apply w-full max-w-screen-sm p-4;
+    }
+    form {
+      label {
+        @apply block text-lg font-medium;
+      }
+      input[type="text"],
+      input[type="number"],
+      input[type="file"],
+      input[type="email"],
+      select,
+      textarea,
+      input[type="password"] {
+        @apply block text-xl font-light p-4 m-4 w-full border border-gray-300 rounded-md outline-none;
+      }
+
+  
+      .progress {
+        @apply bg-gray-300 border border-gray-300 rounded-lg;
+
+        .progress-bar {
+          background-color: var(--light-blue);
+            @apply border border-transparent rounded-lg text-white text-lg font-medium px-4;
+        }
+      }
+    }
+  }
+  
+  .group {
+    border: var(--dark-blue);
+    @apply border border-solid p-5;
+  }
