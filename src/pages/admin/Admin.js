@@ -5,7 +5,7 @@ import { Home, AddProduct, ViewProducts, Orders, Navbar } from '../../components
 const Admin = () => {
   return (
     <section className={styles.admin}>
-
+      <div className="container flex">
         <div className={styles.navbar}>
             <Navbar />
         </div>
@@ -13,12 +13,12 @@ const Admin = () => {
         <div className={styles.content}>
             <Routes>
                 <Route path='home' element={ <Home /> } />
-                <Route path='add-products' element={ <AddProduct /> } />
+                <Route path='add-product' element={ <AddProduct /> } />
                 <Route path='orders' element={ <Orders /> } />
                 <Route path='all-products' element={ <ViewProducts /> } />
             </Routes>
         </div>
-        
+        </div>  
     </section>
   )
 }
