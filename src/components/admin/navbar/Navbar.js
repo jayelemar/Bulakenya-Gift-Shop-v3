@@ -12,7 +12,7 @@ const Navbar = () => {
         <aside className={styles.navbar}>
             <div className={styles.user}>
                 <FaUserCircle size={40} color='#fff' />
-                <h4>{userName}</h4>
+                <p>{userName}</p>
             </div>
             <nav>
                 <ul>
