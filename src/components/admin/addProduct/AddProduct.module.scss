@@ -1,4 +1,6 @@
 .product {
+    @apply m-6;
+
     .card {
         @apply w-full max-w-screen-sm p-4;
     }
@@ -13,7 +15,7 @@
       select,
       textarea,
       input[type="password"] {
-        @apply block text-xl font-light p-4 m-4 w-full border border-gray-300 rounded-md outline-none;
+        @apply block text-xl font-light p-2 m-4 w-full border border-gray-300 rounded-md outline-none;
       }
 
   

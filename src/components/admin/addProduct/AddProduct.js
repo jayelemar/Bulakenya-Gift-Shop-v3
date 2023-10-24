@@ -1,6 +1,6 @@
-import { Card } from 'react-daisyui';
 import styles from './AddProduct.module.scss'
 import { useState } from 'react'
+import Card from '../../card/Card'
 
 const categories = [
     { id: 1, name: "Laptop"},
@@ -19,15 +19,26 @@ const AddProduct = () => {
         desc: "",
     })
 
-    const handleInputChange = (e) => {};
+    const handleInputChange = (e) => {
+        const { name, value } = e.target
+        setProduct({
+            ...product,
+            [name]: value
+        })
+    };
     const handleImageChange = (e) => {};
+
+    const handleAddProduct = (e) => {
+        e.preventDefault();
+        console.log(product);
+    };
 
 
     return (
         <div className={styles.product}>
             <h1>Add New Product</h1>
             <Card cardClass={styles.card}>
-                <form action="">
+                <form action="" onSubmit={handleAddProduct}>
                     <label htmlFor="">Product Name:</label>
                     <input 
                         type="text" 
@@ -110,7 +121,7 @@ const AddProduct = () => {
                     >
                     </textarea>
 
-                    <button className='btn btn-primary'>Save Product</button>
+                    <button className='btn btn-active text-slate-800 border border-slate-500'>Save Product</button>
 
                 </form>
             </Card>
