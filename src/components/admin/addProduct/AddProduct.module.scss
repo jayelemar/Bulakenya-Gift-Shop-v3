@@ -15,7 +15,7 @@
       select,
       textarea,
       input[type="password"] {
-        @apply block text-xl font-light p-2 m-4 w-full border border-gray-300 rounded-md outline-none;
+        @apply block text-xl font-light p-2 mt-2 mb-4 w-full border border-gray-300 rounded-md outline-none;
       }
 
   
@@ -32,5 +32,5 @@
   
   .group {
     border: var(--dark-blue);
-    @apply border border-solid p-5;
+    @apply border border-solid border-red-100 p-5 mb-6;
   }

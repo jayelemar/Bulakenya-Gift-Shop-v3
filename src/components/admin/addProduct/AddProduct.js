@@ -36,7 +36,7 @@ const AddProduct = () => {
 
     return (
         <div className={styles.product}>
-            <h1>Add New Product</h1>
+            <h2>Add New Product</h2>
             <Card cardClass={styles.card}>
                 <form action="" onSubmit={handleAddProduct}>
                     <label htmlFor="">Product Name:</label>
